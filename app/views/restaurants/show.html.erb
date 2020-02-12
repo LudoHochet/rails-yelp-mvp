@@ -1,9 +1,24 @@
-<h1><%= @restaurant.name %></h1>
+<div class="container">
+  <h1><%= @restaurant.name %></h1>
 
-<ul>
-  <li><%= @restaurant.address %></li>
-  <li><%= @restaurant.category %></li>
-  <li><%= @restaurant.phone_number %></li>
-</ul>
+  <ul>
+    <li><%= @restaurant.address %></li>
+    <li><%= @restaurant.category %></li>
+    <li><%= @restaurant.phone_number %></li>
+  </ul>
+    <% @restaurant.reviews.each do |review| %>
+      <ul class="list-inline">
+      <li class="list-inline-item"><%= review.content %></li>
+      <li class="list-inline-item">
+        <% review.rating.times do %>
+          <i class="fas fa-star"></i>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
 
-<%= link_to "Back to list", restaurants_path %>
+
+  <%= link_to "Back to list", restaurants_path %>
+  <%= link_to "Leave a review", new_restaurant_review_path(@restaurant) %>
+</div>
+

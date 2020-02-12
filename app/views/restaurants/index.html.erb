@@ -1,7 +1,9 @@
-<h1>List Restaurants</h1>
-<ul>
-  <% @restaurants.each do |restaurant| %>
-    <li><%= link_to restaurant.name.capitalize, restaurant_path(restaurant) %></li>
-  <% end %>
-</ul>
-<%= link_to "Add a new retaurant", new_restaurant_path%>
+<div class="container">
+  <h1>List Restaurants</h1>
+  <ul>
+    <% @restaurants.each do |restaurant| %>
+      <li><%= link_to restaurant.name.capitalize, restaurant_path(restaurant) %></li>
+    <% end %>
+  </ul>
+  <%= link_to "Add a new retaurant", new_restaurant_path%>
+</div>
